@@ -35,10 +35,5 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 app.get("/", (req, res) => {
-  res.send("Hello from server!");
+  res.send(<h1>hello every one</h1>);
 });
-
-// // Catch all handler: send back React's index.html file for client-side routing
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../client/client/dist/index.html"));
-// });
