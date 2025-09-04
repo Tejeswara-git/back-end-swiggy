@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon run dev",
+    "build": "cd ../client/client && npm install && npm run build",
     "start": "node index"
   },
   "keywords": [],

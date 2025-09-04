@@ -19,6 +19,9 @@ app.use("/vendor", vendorrouter);
 app.use("/firm", firmrouter);
 app.use("/product", productrouter);
 app.use("/uploads", express.static("uploads"));
+// // Serve static files from the React app build directory
+// app.use(express.static(path.join(__dirname, "../client/client/dist")));
+
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
@@ -27,6 +30,15 @@ mongoose
   .catch((err) => {
     console.error("Error connecting to MongoDB :", err);
   });
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+app.get("/", (req, res) => {
+  res.send("Hello from server!");
+});
+
+// // Catch all handler: send back React's index.html file for client-side routing
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../client/client/dist/index.html"));
+// });
